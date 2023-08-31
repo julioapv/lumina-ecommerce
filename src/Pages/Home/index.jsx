@@ -1,6 +1,17 @@
+import { Layout } from '../../components/Layout'
+import { Card } from '../../components/Card'
+
 const Home = () => {
     return (
-        <div className="bg-green-400">Home</div>
+        <Layout>
+            Home
+            <div className='flex gap-3'>
+            <Card />
+            <Card />
+            <Card />
+            <Card />
+            </div>
+        </Layout>
     );
 };
 

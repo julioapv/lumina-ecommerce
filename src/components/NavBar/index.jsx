@@ -1,12 +1,12 @@
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
-    const activeStyle = "bg-red-400 rounded-full border-2 border-black px-5 py-2 shadow-custom z-2";
+    const activeStyle = "bg-red-400 rounded-full border-2 border-black px-5 py-2 shadow-custom z-10";
 
     return (
-        <nav className="flex justify-between items-center fixed w-full py-5 px-8 text-base z-1 bg-[#dbe1ea] border-black border-2">
+        <nav className="flex justify-between items-center fixed top-0 w-full py-5 px-8 text-base z-1 bg-[#dbe1ea] border-black border-b-2">
             <ul className="products flex items-center gap-6">
-                <li className="font-bold text-xl">
+                <li className="font-bold text-xl tracking-widest">
                     <NavLink
                     to='/'
                     >

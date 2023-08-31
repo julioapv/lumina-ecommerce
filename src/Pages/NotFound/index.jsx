@@ -1,6 +1,10 @@
+import { Layout } from "../../components/Layout";
+
 const NotFound = () => {
     return (
-        <div className="bg-red-400">NotFound</div>
+        <Layout>
+            Not found
+        </Layout>
     );
 };
 

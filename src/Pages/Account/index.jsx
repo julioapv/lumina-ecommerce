@@ -1,6 +1,10 @@
+import { Layout } from "../../components/Layout";
+
 const Account = () => {
     return (
-        <div className="bg-blue-400">Account</div>
+        <Layout>
+            Account
+        </Layout>
     );
 };
 

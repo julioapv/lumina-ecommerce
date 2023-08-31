@@ -1,6 +1,10 @@
+import { Layout } from "../../components/Layout";
+
 const Order = () => {
     return (
-        <div className="bg-gray-400">Order</div>
+        <Layout>
+            My order
+        </Layout>
     );
 };
 

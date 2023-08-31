@@ -1,6 +1,10 @@
+import { Layout } from "../../components/Layout";
+
 const SignIn = () => {
     return (
-        <div className="bg-yellow-400">Sign In</div>
+        <Layout>
+            Sign In
+        </Layout>
     );
 };
 

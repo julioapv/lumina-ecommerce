@@ -1,6 +1,10 @@
+import { Layout } from "../../components/Layout";
+
 const Orders = () => {
     return (
-        <div className="bg-gray-400">Orders</div>
+        <Layout>
+            My orders
+        </Layout>
     );
 };
 

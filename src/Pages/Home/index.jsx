@@ -3,10 +3,10 @@ import { Layout } from '../../components/Layout'
 import { Card } from '../../components/Card'
 
 const Home = () => {
-    const [products, setProducts] = useState(null) 
+    const [products, setProducts] = useState(null)
 
     useEffect(() => {
-        fetch('https://api.escuelajs.co/api/v1/products')
+        fetch('https://fakestoreapi.com/products')
         .then(response => response.json())
         .then(data => setProducts(data))
     }, [])

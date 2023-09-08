@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { ShoppingCartContext} from '../../Context'
+import { AiOutlinePlus } from "react-icons/ai";
 
 const Card = (data) => {
     const {
@@ -14,14 +15,14 @@ const Card = (data) => {
         >
             <figure className='relative mb-2 w-full h-4/5 p-4 border-black border-b-2'>
                 <img className="w-full h-full object-contain rounded-sm border-black border-[1px]" src={data.data.image} alt="dress" />
-                <span className='absolute bottom-0 left-0 bg-purple-200 px-1 border-black border-[1px]'>{data.data.category}</span>
+                <span className='absolute bottom-0 left-0 bg-purple-200 px-1 border-black border-[1px] hover:bg-purple-300'>{data.data.category}</span>
                 <button 
-                className="absolute top-0 right-0 flex justify-center items-center bg-purple-400 hover:bg-purple-500 active:bg-purple-600 w-8 h-8 rounded-bl-lg border-black border-b-[1px]" role="button"
+                className="absolute top-0 right-0 flex justify-center items-center text-black font-bold bg-purple-400 hover:bg-purple-500 active:bg-purple-600 w-8 h-8 rounded-bl-lg border-black border-b-[1px]" role="button"
                 onClick={() => {
                     setCount(count + 1)
                 }}
                 >
-                    +
+                <AiOutlinePlus />
                 </button>
             </figure>
 

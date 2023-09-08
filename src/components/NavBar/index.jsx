@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ShoppingCartContext } from "../../Context";
 
 const NavBar = () => {
@@ -108,8 +109,9 @@ const NavBar = () => {
                         Sign In
                     </NavLink>
                 </li>
-                <li>
-                🛒 {count}
+                <li className="flex gap-2 items-center cursor-pointer">
+                <AiOutlineShoppingCart className="text-black text-lg font-bold" />
+                <div className="font-bold">{count}</div>
                 </li>
             </ul>
         </nav>

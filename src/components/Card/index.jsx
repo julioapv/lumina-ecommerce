@@ -6,12 +6,22 @@ const Card = (data) => {
     const {
         count, 
         setCount,
+        openProductDetail,
+        productToShow,
+        setProductToShow,
     } = useContext(ShoppingCartContext)
     
+    const showProduct = (productDetail) => {
+        openProductDetail()
+        setProductToShow(productDetail)
+    }
 
         return (
         <div 
         className="bg-white cursor-pointer w-60 h-96 rounded border-black border-2 hover:shadow-custom"
+        onClick={() => {
+            showProduct(data.data)
+        }}
         >
             <figure className='relative mb-2 w-full h-4/5 p-4 border-black border-b-2'>
                 <img className="w-full h-full object-contain rounded-sm border-black border-[1px]" src={data.data.image} alt="dress" />

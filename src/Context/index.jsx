@@ -5,11 +5,25 @@ const ShoppingCartContext = createContext()
 const ShoppingCartProvider = ({ children }) => {
     const [count, setCount] = useState(0)
 
-    console.log(count);
+    const [isProductDetailOpen, setIsProductDetailOpen ] = useState(false)
+    const openProductDetail = () => {
+        setIsProductDetailOpen(true)
+    }
+    const closeProductDetail = () => {
+        setIsProductDetailOpen(false)
+    }
+
+    const [productToShow, setProductToShow] = useState({})
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
             setCount,
+            openProductDetail,
+            closeProductDetail,
+            isProductDetailOpen,
+            productToShow,
+            setProductToShow,
         }}>
         { children }
         </ShoppingCartContext.Provider>

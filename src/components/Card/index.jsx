@@ -7,20 +7,27 @@ const Card = (data) => {
         count, 
         setCount,
         openProductDetail,
-        productToShow,
+        closeProductDetail,
         setProductToShow,
+        isProductDetailOpen,
         cartProducts,
         setCartProducts,
+        isCheckoutSideMenuOpen,
+        openCheckoutSideMenu,
+        closeCheckoutSideMenu
     } = useContext(ShoppingCartContext)
     
     const showProduct = (productDetail) => {
         openProductDetail()
+        closeCheckoutSideMenu()
         setProductToShow(productDetail)
     }
 
-    const addProductToCart = (productData) => {
+    const addProductToCart = (event, productData) => {
+        event.stopPropagation()
         setCount(count + 1)
         setCartProducts([...cartProducts, productData])
+        openCheckoutSideMenu()
         console.log(cartProducts);
     }
 
@@ -37,7 +44,14 @@ const Card = (data) => {
                 <button 
                 className="absolute top-0 right-0 flex justify-center items-center text-black font-bold bg-purple-400 hover:bg-purple-500 active:bg-purple-600 w-8 h-8 rounded-bl-lg border-black border-b-[1px]"
                 role="button"
-                onClick={() => addProductToCart(data.data)}
+                onClick={(event) => {
+                    addProductToCart(event, data.data)
+                    if (!isProductDetailOpen) {
+                        return
+                    } else {
+                        closeProductDetail()
+                    }
+                }}
                 >
                 <AiOutlinePlus />
                 </button>

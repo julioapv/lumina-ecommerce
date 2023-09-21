@@ -1,27 +1,25 @@
-import './ProductDetail.css'
 import { useContext } from 'react'
 import { ShoppingCartContext} from '../../Context'
 import { AiOutlineClose } from "react-icons/ai";
+import './styles.css'
 
-const ProductDetail = () => {
+const CheckoutSideMenu = () => {
     const {
-        closeProductDetail,
-        isProductDetailOpen,
         productToShow,
-        
-        
+        isCheckoutSideMenuOpen,
+        closeCheckoutSideMenu,
     } = useContext(ShoppingCartContext)
 
     return (
         <aside 
-        className={`${isProductDetailOpen ? 'flex' : 'hidden'} product-detail flex-col fixed right-0 border border-black rounded bg-white overflow-auto`}>
+        className={`${isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded bg-white overflow-auto`}>
             <div className='flex justify-between items-center p-5 bg-blue-200 shadow-sm border-b-black border-b-[1px]'>
-                <p className='text-2xl font-bold'>Details</p>
+                <p className='text-2xl font-bold'>Checkout</p>
                 <button 
                 role='button'
                 className='text-3xl shadow-custom text-black bg-red-400 hover:bg-red-500 active:bg-red-600 active:scale-95'
                 onClick={() => {
-                    closeProductDetail()
+                    closeCheckoutSideMenu()
                 }}
                 >
                 <AiOutlineClose />
@@ -36,18 +34,8 @@ const ProductDetail = () => {
                     <span className=''>{productToShow.price}</span>
                 </span>
             </p>
-
-            <figure className='h-3/4 p-5 border-black border-t-[1px]'>
-                <img className='w-full h-full object-contain rounded' 
-                src={productToShow.image} 
-                alt={productToShow.title} />
-            </figure>
-            
-            <p className='mt-2 px-5 py-5 text-left border-black border-t-[1px] bg-blue-200'>
-            <span className=''>{productToShow.description}</span>
-            </p>
         </aside>
     )
 }
 
-export { ProductDetail };
+export { CheckoutSideMenu };

@@ -1,18 +1,21 @@
 import { useContext } from 'react'
 import { ShoppingCartContext} from '../../Context'
+import { OrderCard } from '../OrderCard';
 import { AiOutlineClose } from "react-icons/ai";
 import './styles.css'
 
 const CheckoutSideMenu = () => {
     const {
         productToShow,
+        cartProducts,
         isCheckoutSideMenuOpen,
         closeCheckoutSideMenu,
     } = useContext(ShoppingCartContext)
+    console.log(cartProducts);
 
     return (
         <aside 
-        className={`${isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded bg-white overflow-auto`}>
+        className={`${isCheckoutSideMenuOpen ? 'flex' : 'hidden'} checkout-side-menu flex-col fixed right-0 border border-black rounded bg-white overflow-y-scroll`}>
             <div className='flex justify-between items-center p-5 bg-blue-200 shadow-sm border-b-black border-b-[1px]'>
                 <p className='text-2xl font-bold'>Checkout</p>
                 <button 
@@ -26,14 +29,17 @@ const CheckoutSideMenu = () => {
                 </button>
             </div>
 
-            <p className='p-5 text-xl text-center'>
-                <span>{productToShow.title}</span>
-                
-                <span className='font-bold text-2xl flex items-center justify-center'>
-                    <span className='text-green-700'>$</span>
-                    <span className=''>{productToShow.price}</span>
-                </span>
-            </p>
+            {
+                cartProducts.map((product) => (
+                    <OrderCard 
+                    key={product.id} 
+                    title={product.title} 
+                    price={product.price} 
+                    imageUrl={product.image}
+                    />
+                ))
+            }
+
         </aside>
     )
 }

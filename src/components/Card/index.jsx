@@ -34,7 +34,9 @@ const Card = (data) => {
         const isInCart = cartProducts.filter(product => product.id === id).length > 0
         if (isInCart) {
             return (
-                <span className="absolute top-0 right-0 flex justify-center items-center text-black font-bold bg-amber-200 w-8 h-8 rounded-bl-lg border-black border-b-[1px]">
+                <span 
+                className="absolute top-0 right-0 flex justify-center items-center text-black font-bold bg-amber-200 w-8 h-8 rounded-bl-lg border-black border-b-[1px]"
+                >
                     <AiOutlineCheck />
                 </span>
             )

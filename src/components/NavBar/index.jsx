@@ -6,7 +6,10 @@ import { ShoppingCartContext } from "../../Context";
 const NavBar = () => {
 
     const {
-        count
+        cartProducts,
+        isCheckoutSideMenuOpen,
+        openCheckoutSideMenu,
+        closeCheckoutSideMenu
     } = useContext(ShoppingCartContext)
 
     const activeStyle = "bg-red-400 rounded-full border-2 border-black px-5 py-2 shadow-custom z-10";
@@ -109,9 +112,16 @@ const NavBar = () => {
                         Sign In
                     </NavLink>
                 </li>
-                <li className="flex gap-2 items-center cursor-pointer">
-                <AiOutlineShoppingCart className="text-black text-lg font-bold" />
-                <div className="font-bold">{count}</div>
+                <li 
+                className="flex gap-2 items-center cursor-pointer"
+                onClick={() => (
+                    isCheckoutSideMenuOpen ? closeCheckoutSideMenu() : openCheckoutSideMenu()
+                )}
+                >
+                <AiOutlineShoppingCart 
+                className="text-black text-lg font-bold"
+                />
+                <div className="font-bold">{cartProducts.length}</div>
                 </li>
             </ul>
         </nav>

@@ -1,8 +1,7 @@
 import { AiOutlineClose } from "react-icons/ai";
 
 const OrderCard = (props) => {
-    const { id, title, price, imageUrl} = props
-    console.log(id, title, price);
+    const { id, title, price, imageUrl, handleDelete} = props
 
     return (
         <div className="flex justify-between items-center p-2 border-black border-b-[1px]">
@@ -13,11 +12,15 @@ const OrderCard = (props) => {
                 </figure> 
             </div>
             <div className="flex justify-between items-center">
-                <p className="text-md font-light w-40">{title}</p>  
+                <p className="text-md font-light w-40 line-clamp-1">{title}</p>  
             </div>
             <div className="flex justify-between items-center">   
                 <p className="text-xl font-bold">${price}</p>
-                <span className='text-xl ml-2 shadow-custom text-black bg-violet-400 hover:bg-violet-500 active:bg-violet-600 active:scale-95'><AiOutlineClose /></span>
+                <span 
+                className='text-xl ml-2 shadow-custom text-black bg-violet-400 hover:bg-violet-500 active:bg-violet-600 active:scale-95'
+                onClick={() => handleDelete(id)}>
+                    <AiOutlineClose />
+                </span>
             </div>
         </div>
     )

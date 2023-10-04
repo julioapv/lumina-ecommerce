@@ -22,13 +22,16 @@ const Orders = () => {
                 <h1>My orders</h1>
             </div>
             {
-                order.map((order, index) => {
-                    <Link key={index} to={`/ordders/ ${order.id}`}>
+                order.map((order, index) => (
+                    <Link key={index} to={`/orders/${index}`}>
                         <OrdersCard
                         totalPrice={order.totalPrice}
-                        totalProducts={order.totalProducts} />
+                        totalProducts={order.totalProducts}
+                        date={order.date}
+                        />
                     </Link>
-                })
+                ) 
+                )
             }
         </Layout>
     );

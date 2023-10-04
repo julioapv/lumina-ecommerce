@@ -1,9 +1,10 @@
-import { useContext } from "react";
-import { ShoppingCartContext} from '../../Context'
+import { useContext, useEffect } from "react";
 import { Link } from 'react-router-dom';
+import { ShoppingCartContext} from '../../Context'
 import { Layout } from "../../components/Layout";
 import { OrderCard } from '../../components/OrderCard';
 import { AiOutlineLeft } from "react-icons/ai";
+
 
 
 const Order = () => {
@@ -13,7 +14,14 @@ const Order = () => {
         order,
     } = useContext(ShoppingCartContext)
 
-    closeCheckoutSideMenu()
+    useEffect(() => {
+        closeCheckoutSideMenu()
+    }, [])
+
+    const currentPath = window.location.pathname
+    let index = currentPath.substring(currentPath.lastIndexOf('/') + 1)
+    if (index === 'last') index = order?.length - 1
+
 
     return (
         <Layout>
@@ -29,7 +37,7 @@ const Order = () => {
             </div>
             <div className='flex flex-col w-4/5'>
             {
-                order?.slice(-1)[0].products.map((product) => (
+                order?.[index]?.products.map(product => (
                     <OrderCard 
                     key={product.id}
                     id={product.id} 

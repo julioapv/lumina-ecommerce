@@ -9,7 +9,11 @@ const Home = () => {
     const [products, setProducts] = useState(null)
 
     useEffect(() => {
-        fetch('https://fakestoreapi.com/products')
+        fetch('https://fakestoreapi.com/products', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'default'
+        })
         .then(response => response.json())
         .then(data => setProducts(data))
     }, [])

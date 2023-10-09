@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
 import { ShoppingCartContext } from "../../Context";
+import logo from '../../assets/lumina.svg'
 
 const NavBar = () => {
 
@@ -21,7 +22,13 @@ const NavBar = () => {
                     <NavLink
                     to='/'
                     >
-                    Lumina
+                    <div className="flex items-center gap-2">
+                        <img 
+                        className="w-14"
+                        src={logo} 
+                        alt="lumina" />
+                        <p className="font-bold text-2xl tracking-widest">Lumina</p>
+                    </div>
                     </NavLink>
                 </li>
                 <li>

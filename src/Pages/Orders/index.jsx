@@ -18,21 +18,23 @@ const Orders = () => {
 
     return (
         <Layout>
-            <div className='flex items-center justify-center relative mt-5 w-80'>
-                <h1>My orders</h1>
+            <div className='flex items-center justify-center relative mt-8 mb-5 w-80'>
+                <h1 className='text-3xl font-bold'>My orders</h1>
             </div>
+            <div className='w-full flex flex-col p-5'>
             {
                 order.map((order, index) => (
                     <Link key={index} to={`/orders/${index}`}>
                         <OrdersCard
-                        totalPrice={order.totalPrice}
                         totalProducts={order.totalProducts}
+                        totalPrice={order.totalPrice}
                         date={order.date}
                         />
                     </Link>
                 ) 
                 )
             }
+            </div>
         </Layout>
     );
 };

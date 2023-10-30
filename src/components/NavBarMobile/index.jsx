@@ -21,9 +21,10 @@ const NavBarMobile = () => {
         }
 
     const activeStyle = "bg-red-400 border-2  border-black shadow-custom z-10";
+    const activeStyleAccount = "bg-green-400 border-2  border-black shadow-custom z-10";
 
     return (
-        <nav className="flex flex-col fixed top-0 w-full h-full">
+        <nav className="flex flex-col fixed top-0 w-full">
             
             <div className="flex justify-between items-center p-5 bg-[#dbe1ea]">
                 <NavLink
@@ -54,16 +55,16 @@ const NavBarMobile = () => {
                 </span>
             </div>
 
-            <div className={`${showNavBarMobile ? 'block' : 'hidden' } flex-col w-full h-full bg-violet-300`}>
+            <div className={`${showNavBarMobile ? 'block' : 'hidden' } flex-col w-full h-full bg-white p-5`}>
 
-            <ul className="account flex flex-col items-center gap-6">
+            <ul className="account flex flex-col items-end gap-6 text-xl">
                 <li
                 className='text-black/60'
                 >
                     <NavLink
-                    to='/'
+                    to='/account'
                     className={({ isActive }) => 
-                    isActive ? activeStyle : ""
+                    isActive ? activeStyleAccount : ""
                     }>
                         johndo@gmail.com
                     </NavLink>
@@ -95,17 +96,9 @@ const NavBarMobile = () => {
                         Sign In
                     </NavLink>
                 </li>
-                <li 
-                className="flex gap-2 items-center cursor-pointer"
-                >
-                <AiOutlineShoppingCart 
-                className="text-black text-lg font-bold"
-                />
-                <div className="font-bold">{cartProducts.length}</div>
-                </li>
             </ul>
 
-            <ul className="products flex flex-col items-end gap-2">
+            <ul className="products grid grid-cols-3 gap-5 mt-10 bg-green-100 2-full text-lg md:text-3xl">
                 <li>
                     <NavLink
                     to='/'

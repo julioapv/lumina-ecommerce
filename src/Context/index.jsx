@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState, createContext, useEffect } from 'react';
 
 const ShoppingCartContext = createContext()
 
@@ -28,6 +28,19 @@ const ShoppingCartProvider = ({ children }) => {
     //Shopping Cart - Order
     const [order, setOrder] = useState([])
 
+    // Get products
+    const [products, setProducts] = useState(null)
+
+    useEffect(() => {
+        fetch('https://fakestoreapi.com/products', {
+            method: 'GET',
+            mode: 'cors',
+            cache: 'default'
+        })
+        .then(response => response.json())
+        .then(data => setProducts(data))
+    }, [])
+
     return (
         <ShoppingCartContext.Provider value={{
             count,
@@ -43,7 +56,9 @@ const ShoppingCartProvider = ({ children }) => {
             openCheckoutSideMenu,
             closeCheckoutSideMenu,
             order,
-            setOrder
+            setOrder,
+            products,
+            setProducts
         }}>
         { children }
         </ShoppingCartContext.Provider>

@@ -30,6 +30,10 @@ const ShoppingCartProvider = ({ children }) => {
 
     // Get products
     const [products, setProducts] = useState(null)
+    const [filteredProducts, setFilteredProducts] = useState(null)
+
+    // Get products by search value
+    const [searchValue, setSearchValue] = useState(null)
 
     useEffect(() => {
         fetch('https://fakestoreapi.com/products', {
@@ -40,6 +44,14 @@ const ShoppingCartProvider = ({ children }) => {
         .then(response => response.json())
         .then(data => setProducts(data))
     }, [])
+
+    const filteredProductsByTittle = (products, searchValue) => {
+        return products?.filter(product => product.title.toLowerCase().includes(searchValue.toLowerCase()))
+    }
+
+    useEffect(() => {
+        if (searchValue) setFilteredProducts(filteredProductsByTittle(products, searchValue))
+    }, [products, searchValue])
 
     return (
         <ShoppingCartContext.Provider value={{
@@ -58,7 +70,11 @@ const ShoppingCartProvider = ({ children }) => {
             order,
             setOrder,
             products,
-            setProducts
+            setProducts,
+            searchValue,
+            setSearchValue,
+            filteredProducts, 
+            setFilteredProducts
         }}>
         { children }
         </ShoppingCartContext.Provider>

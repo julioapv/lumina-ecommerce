@@ -47,7 +47,7 @@ const Home = () => {
             }
         } else {
             return (
-                    products?.map((item) => (
+                    filteredProducts?.map((item) => (
                         <Card key={item.id} data={item} />
                     ))
             )
@@ -56,7 +56,7 @@ const Home = () => {
 
     return (
         <Layout>
-            <div className='flex items-center justify-center relative w-80 mt-5 mb-4'>
+            <div className='flex items-center justify-center relative w-80 mt-10 mb-4'>
                 <h1 className='font-medium text-2xl md:text-3xl'>
                     Find your ideal product
                 </h1>

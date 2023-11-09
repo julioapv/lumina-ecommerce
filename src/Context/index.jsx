@@ -32,6 +32,8 @@ const ShoppingCartProvider = ({ children }) => {
     const [products, setProducts] = useState(null)
     const [filteredProducts, setFilteredProducts] = useState(null)
 
+    const [filteredByCategories, setFilteredByCategories] = useState(null)
+
     // Get products by search value
     const [searchValue, setSearchValue] = useState(null)
 

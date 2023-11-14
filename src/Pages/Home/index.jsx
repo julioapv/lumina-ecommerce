@@ -16,42 +16,18 @@ const Home = () => {
         filteredProducts, 
     } = useContext(ShoppingCartContext)
 
-    // const renderView = () => {
-    //     const productsToRender = 
-    //     searchValue?.length > 0
-    //     ? filteredProducts
-    //     : products
-
-    //     if (productsToRender?.length > 0) {
-    //         return productsToRender?.map(item => (
-    //             <Card key={item.id} data={item} />
-    //         ))
-    //     } else {
-    //         return <div>No resuts found :(</div>
-    //     }
-    // }
-
     const renderView = () => {
-        if (searchValue?.length > 0) {
             if (filteredProducts?.length > 0) {
                 return (
                     filteredProducts?.map((item) => (
                         <Card key={item.id} data={item} />
                     ))
                 )
-
             } else {
                 return (
                     <div>Not found :(</div>
                 )
             }
-        } else {
-            return (
-                    filteredProducts?.map((item) => (
-                        <Card key={item.id} data={item} />
-                    ))
-            )
-        }
     }
 
     return (

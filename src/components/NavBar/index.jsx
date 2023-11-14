@@ -50,26 +50,14 @@ const NavBar = () => {
                 </li>
                 <li>
                     <NavLink
-                    to='/mensclothing'
+                    to='/clothing'
                     onClick={() => {
                         setSearchByCategory("men's clothing")
                     }}
                     className={({ isActive }) => 
                     isActive ? activeStyle : ""
                     }>
-                        Men's clothing
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                    to='/womensclothing'
-                    onClick={() => {
-                        setSearchByCategory("women's clothing")
-                    }}
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        Women's clothing
+                        Clothing
                     </NavLink>
                 </li>
                 <li>
@@ -101,7 +89,7 @@ const NavBar = () => {
                 <li
                 className='text-black/60'
                 >
-                johndo@gmail.com
+                johndoe@gmail.com
                 </li>
                 <li>
                     <NavLink
@@ -110,24 +98,6 @@ const NavBar = () => {
                     isActive ? activeStyle : ""
                     }>
                         My orders
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                    to='/account'
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        My account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                    to='/Sign-in'
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        Sign In
                     </NavLink>
                 </li>
                 <li 

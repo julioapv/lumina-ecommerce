@@ -20,8 +20,7 @@ const NavBarMobile = () => {
             setShowNavBarMobile(!showNavBarMobile)
         }
 
-    const activeStyle = "bg-red-400 border-2  border-black shadow-custom z-10";
-    const activeStyleAccount = "bg-green-400 border-2  border-black shadow-custom z-10";
+    const activeStyle = "bg-red-400 rounded-full border-2 border-black px-5 py-2 shadow-custom z-10";
 
     return (
         <nav className="flex flex-col fixed top-0 w-full">
@@ -57,16 +56,16 @@ const NavBarMobile = () => {
 
             <div className={`${showNavBarMobile ? 'block' : 'hidden' } flex-col w-full h-full bg-white p-5`}>
 
-            <ul className="account flex flex-col items-end gap-6 text-xl">
+            <ul className="account flex flex-col items-center gap-6 text-xl">
                 <li
                 className='text-black/60'
                 >
                     <NavLink
                     to='/account'
                     className={({ isActive }) => 
-                    isActive ? activeStyleAccount : ""
+                    isActive ? activeStyle : ""
                     }>
-                        johndo@gmail.com
+                        johndoe@gmail.com
                     </NavLink>
                 </li>
                 <li>
@@ -78,27 +77,9 @@ const NavBarMobile = () => {
                         My orders
                     </NavLink>
                 </li>
-                <li>
-                    <NavLink
-                    to='/account'
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        My account
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                    to='/Sign-in'
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        Sign In
-                    </NavLink>
-                </li>
             </ul>
 
-            <ul className="products grid grid-cols-3 gap-5 mt-10 bg-green-100 2-full text-lg md:text-3xl">
+            <ul className="products grid grid-cols-2 text-center gap-5 mt-10 2-full text-lg md:text-3xl">
                 <li>
                     <NavLink
                     to='/'
@@ -114,16 +95,7 @@ const NavBarMobile = () => {
                     className={({ isActive }) => 
                     isActive ? activeStyle : ""
                     }>
-                        Men's clothing
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink
-                    to='/electronics'
-                    className={({ isActive }) => 
-                    isActive ? activeStyle : ""
-                    }>
-                        Woman's clothing
+                        Clothing
                     </NavLink>
                 </li>
                 <li>
